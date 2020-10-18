@@ -11,7 +11,6 @@ class NovaViewMiddlewareServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-
     }
 
     /**
