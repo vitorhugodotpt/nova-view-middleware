@@ -24,10 +24,10 @@ class NovaViewMiddleware
             $resource = "App\\Nova\\" . Str::ucfirst($segments[1]);
             $model = $resource::$model;
 
-            if(!\Auth::user()->can('view', $model)) {
+            $canView = $resource::$viewMiddleware ?? false;
+            if(!$canView && !Auth::user()->can('view', $model)) {
                 return redirect('/403');
             }
-
         }
         return $next($request);
     }
