@@ -14,6 +14,16 @@ composer require vitorhugodotpt/nova-view-middleware
 ```
 
 ## Usage
+Add class to config > nova.php
+````php
+'middleware' => [
+    ...
+    \Vitorhugodotpt\NovaViewMiddleware\NovaViewMiddleware::class,
+    ...
+],
+````
+
+
 if you want to have the index resource available, even if the policy view is false.
 ``` php
 public static $viewMiddleware = true;
