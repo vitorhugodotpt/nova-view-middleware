@@ -3,7 +3,9 @@
     "description": "Middleware to control visibility of index of one Resource in Laravel Nova",
     "keywords": [
         "vitorhugodotpt",
-        "nova-view-middleware"
+        "nova-view-middleware",
+        "laravel",
+        "nova"
     ],
     "homepage": "https://github.com/vitorhugodotpt/nova-view-middleware",
     "license": "MIT",
@@ -11,10 +13,10 @@
     "authors": [
         {
             "name": "Vitor Hugo",
-            "email": "vhugo@vitorhugo.pt",
-            "role": "Developer"
+            "email": "vhugo@vitorhugo.pt"
         }
     ],
+    "minimum-stability": "dev",
     "require": {
         "php": "^7.1",
         "illuminate/support": "^6.0"

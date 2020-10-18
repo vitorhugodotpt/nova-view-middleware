@@ -2,7 +2,6 @@
 
 namespace Vitorhugodotpt\NovaViewMiddleware;
 
-use App;
 use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
@@ -20,15 +19,20 @@ class NovaViewMiddleware
     {
         $segments = $request->segments();
 
-        if(count($segments) === 2 && $segments[0] === 'resources' && \Auth::check()) {
-            $resource = "App\\Nova\\" . Str::ucfirst($segments[1]);
+        if (count($segments) === 2 && $segments[0] === 'resources' && \Auth::check()) {
+            $resource = 'App\\Nova\\'.Str::ucfirst($segments[1]);
             $model = $resource::$model;
 
+<<<<<<< HEAD
             $canView = $resource::$viewMiddleware ?? false;
             if(!$canView && !Auth::user()->can('view', $model)) {
+=======
+            if (! \Auth::user()->can('view', $model)) {
+>>>>>>> 23ca0e5e46ef75bf45600cbc79ef3a0679b15fcf
                 return redirect('/403');
             }
         }
+
         return $next($request);
     }
 }

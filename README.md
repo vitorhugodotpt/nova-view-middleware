@@ -3,7 +3,7 @@
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/vitorhugodotpt/nova-view-middleware.svg?style=flat-square)](https://packagist.org/packages/vitorhugodotpt/nova-view-middleware)
 [![Total Downloads](https://img.shields.io/packagist/dt/vitorhugodotpt/nova-view-middleware.svg?style=flat-square)](https://packagist.org/packages/vitorhugodotpt/nova-view-middleware)
 
-Disable the default access to a resource index when the policy view is false.
+Middleware to control visibility of index of one Resource in Laravel Nova
 
 ## Installation
 
