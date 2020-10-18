@@ -1,4 +1,4 @@
-# Very short description of the package
+# Laravel Nova View Middleware
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/vitorhugodotpt/nova-view-middleware.svg?style=flat-square)](https://packagist.org/packages/vitorhugodotpt/nova-view-middleware)
 [![Total Downloads](https://img.shields.io/packagist/dt/vitorhugodotpt/nova-view-middleware.svg?style=flat-square)](https://packagist.org/packages/vitorhugodotpt/nova-view-middleware)
