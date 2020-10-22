@@ -21,15 +21,29 @@ class NovaViewMiddleware
         $segments = $request->segments();
 
         if (count($segments) === 2 && $segments[0] === 'resources' && Auth::check()) {
-            $resource = 'App\\Nova\\'.Str::ucfirst($segments[1]);
-            $model = $resource::$model;
 
-            $canView = $resource::$viewMiddleware ?? false;
-            if (! $canView && ! Auth::user()->can('view', $model)) {
-                return redirect('/403');
+            try {
+                $resource = $this->resource($segments[1]);
+                $model = $resource::$model;
+                $canView = $resource::$viewMiddleware ?? false;
+                if (! $canView && ! Auth::user()->can('view', $model)) {
+                    return redirect('/403');
+                }
+            }catch (\Throwable $e) {
+                \Log::info('NovaViewMiddleware', [$e->getMessage()]);
             }
+
         }
 
         return $next($request);
+    }
+
+    /**
+     * @param $routeSegment
+     * @return string
+     */
+    private function resource($routeSegment)
+    {
+        return 'App\\Nova\\'.Str::singular(Str::studly($routeSegment));
     }
 }
