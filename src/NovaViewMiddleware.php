@@ -21,7 +21,6 @@ class NovaViewMiddleware
         $segments = $request->segments();
 
         if (count($segments) === 2 && $segments[0] === 'resources' && Auth::check()) {
-
             try {
                 $resource = $this->resource($segments[1]);
                 $model = $resource::$model;
@@ -29,10 +28,9 @@ class NovaViewMiddleware
                 if (! $canView && ! Auth::user()->can('view', $model)) {
                     return redirect('/403');
                 }
-            }catch (\Throwable $e) {
+            } catch (\Throwable $e) {
                 \Log::info('NovaViewMiddleware', [$e->getMessage()]);
             }
-
         }
 
         return $next($request);
