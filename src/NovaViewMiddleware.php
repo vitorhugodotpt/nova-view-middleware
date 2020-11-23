@@ -43,9 +43,10 @@ class NovaViewMiddleware
     private function resource($routeSegment)
     {
         $resource = 'App\\Nova\\'.Str::singular(Str::studly($routeSegment));
-        if(!class_exists($resource)) {
+        if (! class_exists($resource)) {
             $resource = 'App\\Nova\\'.Str::studly($routeSegment);
         }
+
         return $resource;
     }
 }
